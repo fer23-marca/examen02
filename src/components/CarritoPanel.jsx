@@ -1,4 +1,3 @@
-
 const CarritoPanel = ({ carrito, onQuitar, onVaciar }) => {
   const total = carrito.reduce((suma, item) => suma + item.price, 0);
 
