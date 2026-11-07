@@ -1,5 +1,4 @@
 
-
 const ProductoCard = ({ producto, enCarrito, onAgregar, onQuitar }) => {
   return (
     <div className={`card${enCarrito ? " en-carrito" : ""}`}>
@@ -7,11 +6,13 @@ const ProductoCard = ({ producto, enCarrito, onAgregar, onQuitar }) => {
       <h4>{producto.title}</h4>
       <p className="categoria">{producto.category}</p>
       <p className="precio">$ {producto.price.toFixed(2)}</p>
-      {enCarrito ? (
-        <button onClick={() => onQuitar(producto.id)}>Quitar</button>
-      ) : (
-        <button onClick={() => onAgregar(producto)}>Agregar</button>
-      )}
+
+      <button
+        onClick={() => onAgregar(producto)}
+        disabled={enCarrito}
+      >
+        {enCarrito ? "Agregado" : "Agregar"}
+      </button>
     </div>
   );
 }
